@@ -3,8 +3,8 @@ package hello_test
 import (
 	"github.com/Mjkim-Programming/GoLearn/hello"
 
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestSayHello(t *testing.T) {
@@ -28,6 +28,20 @@ func TestSayBye(t *testing.T) {
 
 	// When
 	res := hello.SayBye(name)
+
+	// Then
+	if res != expected {
+		t.Error(fmt.Sprintf("Wrong Result : Expected %v, got %v", expected, res))
+	}
+}
+
+func TestIsAdult(t *testing.T) {
+	// Given
+	age := 14
+	expected := false
+
+	// When
+	res := hello.IsAdult(age)
 
 	// Then
 	if res != expected {
